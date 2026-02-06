@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under the Arch | Jon Nealon</title>
+    <meta name="description" content="Under the Arch - Nine-channel synchronized video installation documenting the May 29, 2020 Barclays Center protest through NYPD body camera footage">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #333;
+            text-decoration: none;
+        }
+
+        nav a {
+            margin-left: 30px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 60px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            font-weight: 300;
+            max-width: 900px;
+            line-height: 1.5;
+        }
+
+        /* Project Metadata */
+        .metadata {
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .metadata-item {
+            font-size: 0.95rem;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .metadata-value {
+            color: #666;
+        }
+
+        /* Main Image */
+        .main-image {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #999;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
+
+        .content-section ul {
+            margin: 20px 0 20px 40px;
+            max-width: 900px;
+        }
+
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 40px 0;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .download-section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border: 2px solid #333;
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Blockquote */
+        blockquote {
+            border-left: 4px solid #e0e0e0;
+            padding-left: 30px;
+            margin: 40px 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+            font-style: italic;
+            max-width: 900px;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 40px 0;
+            max-width: 900px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            min-width: 200px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .timeline-content {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-section a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #333;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            opacity: 0.6;
+        }
+        /* Video Link with Play Button */
+        .video-link {
+            display: block;
+            position: relative;
+            margin: 40px auto;
+            max-width: 900px;
+            cursor: pointer;
+        }
+
+        .video-link img {
+            width: 100%;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-link:hover img {
+            opacity: 0.8;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .play-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 52%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 25px solid #333;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .video-link:hover .play-button {
+            background: rgba(255, 255, 255, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: flex;
+                gap: 20px;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-section h2,
+            .download-section h2,
+            .contact-section h2 {
+                font-size: 2rem;
+            }
+
+            .metadata {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .timeline-date {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <!-- Hero Section with GIF -->
+    <section class="hero">
+        <div class="container">
+            <h1>Under the Arch</h1>
+            <p class="subtitle">Nine-channel synchronized video installation<br>Barclays Center, Brooklyn · May 29, 2020</p>
+            <p class="subtitle" style="font-size: 1rem; margin-top: 10px; color: #999;">Jon Nealon, in collaboration with SITU Research and the National Lawyers Guild</p>
+            
+            <!-- MAIN GIF - Replace with your GIF file -->
+            <div style="margin: 60px 0;">
+                <img src="images/UnderTheArch2.gif" alt="Under the Arch preview" style="width: 100%; max-width: 800px; display: block; margin: 0 auto;">
+            </div>
+            
+            <p style="max-width: 900px; font-size: 1.1rem; color: #666; line-height: 1.8; margin-top: 40px;">
+                Composed entirely of NYPD body camera and aerial footage obtained through legal discovery, the installation presents approximately thirty minutes of the first large-scale protest following George Floyd's murder—across nine synchronized monitors.
+            </p>
+        </div>
+    </section>
+
+    <!-- Installation Images -->
+    <section class="main-image">
+        <div class="container">
+            <!-- Installation View 1 -->
+            <img src="images/UTA_in_room.JPG" alt="Under the Arch installation view" style="margin-bottom: 60px;">
+            <p class="image-caption">Installation view, Visual Investigations, Architrkturmuseum Der TUM, Munich, 2024</p>
+            
+            <!-- STILL IMAGE SLOT 1 - Add your image here -->
+            
+            
+            <!-- STILL IMAGE SLOT 2 - Add your image here -->
+           
+    </section>
+
+    <!-- Artist Statement -->
+    <section class="content-section">
+        <div class="container">
+            <h2>About the Work</h2>
+            
+            <p><em>Under the Arch</em> transforms the surveillance apparatus of state power into a tool for public accountability. The work refuses editorial authority—no footage has been cut or rearranged. Viewers encounter multiple simultaneous perspectives unfolding in real-time across nine synchronized monitors.</p>
+
+            <p>The installation inverts conventional documentary practice. Rather than imposing narrative structure on events, it distributes institutional documentation across physical space, allowing the evidence to speak through its own contradictions. The footage was obtained through collaboration with the National Lawyers Guild on civil rights litigation that resulted in settlements for protesters.</p>
+
+            <p>Visitors must navigate the installation physically, constructing their own spatial understanding of events—much as participants experienced the chaos itself. The nine-monitor format functions as embodied mapping: viewers experience the limitations of any single perspective while glimpsing the larger pattern of institutional behavior.</p>
+        </div>
+    </section>
+
+    <!-- Video Link -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Full Installation Video</h2>
+            <p>View the complete 30-minute installation as a single synchronized composition.</p>
+            
+            <a href="https://vimeo.com/1029879578" target="_blank" class="video-link">
+                <img src="images/thumbnail2.jpg" alt="Watch Under the Arch on Vimeo">
+                <div class="play-button"></div>
+            </a>
+      
+            </p>
+        </div>
+    </section>
+
+    <!-- Context -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Context</h2>
+            
+            <p>By May 29, 2020, just four days after George Floyd's death in Minneapolis, protests had spread across the United States. In New York, thousands converged at the Barclays Center in Brooklyn—the first large-scale gathering of what would become a week of protest and unrest.</p>
+
+            <p>The NYPD's actions that week strained relationships with New Yorkers and cost the city millions in lawsuits and settlements that continue today.</p>
+        </div>
+    </section>
+
+    <!-- Legal Impact -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Legal Impact</h2>
+            
+            <p>The footage was obtained through legal discovery in collaboration with the National Lawyers Guild's class-action lawsuit on behalf of protesters. The case resulted in successful settlements in 2023.</p>
+
+            <p><strong>Documentation:</strong></p>
+            <ul>
+                <li><a href="https://www.theguardian.com/us-news/2023/jul/20/new-york-nypd-george-floyd-protests-2020" target="_blank">The Guardian</a></li>
+                <li><a href="https://situ.nyc/files/pdfs/6090/20230719-nlg-press-release-final-version.pdf" target="_blank">National Lawyers Guild Press Release (July 2023)</a></li>
+                <li><a href="https://www.architekturmuseum.de/en/exhibitions/visual-investigations/" target="_blank">Visual Investigations Exhibition, Munich</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Technical Specifications</h2>
+            
+            <p><strong>Format:</strong> 9-channel synchronized video with audio<br>
+            <strong>Duration:</strong> 30:00 (loops continuously)<br>
+            <strong>Configuration:</strong> 3×3 grid (nine monitors) or single channel projection<br>
+            <strong>Space required:</strong> Approximately 20' × 15'<br>
+            <strong>Source:</strong> NYPD body camera and aerial surveillance footage</p>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="container">
+            <h2>Exhibition Materials</h2>
+            <p>Download complete documentation for exhibition planning</p>
+            
+            <div class="download-buttons">
+                <a href="UnderTheArchArtistStatement.pdf" class="btn" download>Artist Statement (PDF)</a>
+                <a href="UTA_schematic.pdf" class="btn" download>Installation schematic (PDF)</a>
+                <a href="UTA_in_room.JPG" class="btn" download>Installation Photo (JPG)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="content-section">
+        <div class="container">
+            <h2>About</h2>
+            
+            <p>Jon Nealon is an Emmy-nominated investigative journalist and documentary filmmaker. His work includes "Crime Scene Bucha" for FRONTLINE/PBS and collaborations with SITU Research, Human Rights Watch, and the Associated Press.</p>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Exhibition Inquiries</h2>
+            <p>Under the Arch is available for exhibition at museums, galleries, and educational institutions.</p>
+            <p>Contact: <a href="mailto:jnealon@gmail.com">jnealon@gmail.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jon Nealon. All rights reserved.</p>
+            <p style="margin-top: 10px;"><a href="https://jonnealon.github.io">Return to main portfolio</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
