@@ -198,6 +198,29 @@
             letter-spacing: 0.01em;
         }
 
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.05;
+        }
+
+        .nav-org {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--color-accent);
+            text-decoration: none;
+            margin-top: 3px;
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-org:hover {
+            opacity: 1;
+        }
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
@@ -228,7 +251,7 @@
             max-width: var(--max-width);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.5fr 1fr;
             gap: 80px;
             align-items: center;
         }
@@ -283,9 +306,49 @@
 
         .hero-image img {
             width: 100%;
+            max-width: 320px;
+            margin-left: auto;
+            display: block;
             aspect-ratio: 4/5;
             object-fit: cover;
             filter: grayscale(20%);
+        }
+
+        .upcoming {
+            max-width: 320px;
+            margin: 1.25rem 0 0 auto;
+            padding: 1.1rem 1.25rem;
+            background: var(--color-paper-warm);
+            border: 1px solid var(--color-border);
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .upcoming-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.65rem;
+        }
+
+        .upcoming-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .upcoming-list li {
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: var(--color-ink-light);
+        }
+
+        .upcoming-date {
+            font-weight: 600;
+            color: var(--color-ink);
+            margin-right: 0.35rem;
         }
 
         .image-placeholder {
@@ -325,6 +388,12 @@
             font-weight: 400;
             color: var(--color-ink);
             max-width: 600px;
+        }
+
+        .section-label.verify {
+            font-family: var(--font-body);
+            text-transform: none;
+            letter-spacing: 0.05em;
         }
 
         /* About Section */
@@ -623,7 +692,7 @@
 
         /* Research Section */
         .research {
-            background: var(--color-paper-warm);
+            background: #ece7e4;
         }
 
         .research-grid {
@@ -672,6 +741,138 @@
 
         .research-status {
             font-size: 0.8rem;
+            color: var(--color-ink-muted);
+            font-style: italic;
+        }
+
+        /* Interactive Tools Section */
+        .tools {
+            background: #f4ece4;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .tools-intro {
+            font-size: 1rem;
+            color: var(--color-ink-light);
+            margin-top: 1rem;
+            max-width: 620px;
+        }
+
+        .tools-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .tool-item {
+            display: flex;
+            border: 1px solid var(--color-border);
+            background: var(--color-paper);
+            transition: border-color 0.2s ease;
+        }
+
+        .tool-item:hover {
+            border-color: var(--color-accent);
+        }
+
+        .tool-item.no-link:hover {
+            border-color: var(--color-border);
+        }
+
+        .tool-link {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .tool-thumb {
+            position: relative;
+            overflow: hidden;
+            background: var(--color-ink);
+            aspect-ratio: 16 / 10;
+        }
+
+        .tool-thumb img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.4s ease;
+        }
+
+        .tool-item:hover .tool-thumb img {
+            transform: scale(1.03);
+        }
+
+        /* Branded cover panel for tools without a screenshot */
+        .tool-thumb.placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(150deg, #241a17 0%, #12100f 100%);
+        }
+
+        .tool-thumb.placeholder .ph-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #f3e9e2;
+            line-height: 1.2;
+        }
+
+        .tool-thumb.placeholder .ph-tag {
+            margin-top: 0.6rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-accent-light);
+        }
+
+        .tool-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 1.75rem;
+        }
+
+        .tool-type {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.85rem;
+        }
+
+        .tool-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--color-ink);
+            margin-bottom: 0.85rem;
+            line-height: 1.25;
+        }
+
+        .tool-abstract {
+            font-size: 0.88rem;
+            color: var(--color-ink-light);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .tool-status {
+            margin-top: auto;
+            font-size: 0.78rem;
             color: var(--color-ink-muted);
             font-style: italic;
         }
@@ -791,7 +992,17 @@
 
             .hero-image {
                 order: -1;
-                max-width: 400px;
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+                margin-left: 0;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
             }
 
             .hero-text h1 {
@@ -845,12 +1056,16 @@
 <body>
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-name">Jon Nealon</a>
+            <div class="nav-brand">
+                <a href="#" class="nav-name">Jon Nealon</a>
+                <a href="#tools" class="nav-org">&lt;verify&gt;</a>
+            </div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
                 <li><a href="#work">Work</a></li>
+                <li><a href="#tools">Interactives</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -890,25 +1105,15 @@
             </div>
            <div class="hero-image">
                 <img src="images/headshot.jpg" alt="Jon Nealon">
-            </div>
+                <div class="upcoming" id="upcoming">
+                    <div class="upcoming-label">Upcoming Talks</div>
+                    <ul class="upcoming-list">
+                        <li data-date="2026-09-02"><span class="upcoming-date">Sep 2</span>Royal Geographical Society Annual Conference, London</li>
+                        <li data-date="2026-09-08"><span class="upcoming-date">Sep 8</span>The Global Conference on Migration, Bratislava</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="about-content">
-            <div class="about-intro">
-                I produce investigations that use geospatial analysis to document human rights violations and hold power accountable. My work bridges documentary filmmaking, spatial analysis, and legal evidence standards.
-            </div>
-            <div class="about-text">
-                <p>
-                    I spent twenty years as a documentary editor, shaping stories for broadcast and independent film. It is a craft I love, but increasingly I wanted my work to do more than reach audiences; I wanted it to matter in courtrooms, in policy debates, and in the lives of people affected by the events I was documenting.
-                </p>
-                <p>
-                    That conviction led me to new partnerships, to investigations that could inform legal accountability, shape policy, and serve communities beyond the screen, and eventually back to graduate school to learn the geospatial technologies now central to investigative journalism. I'm completing my MS in GIS at the University at Albany, developing human-centered approaches to spatial storytelling that make complex evidence accessible while meeting standards for legal accountability.
-                </p>
-            
+                </div>
             </div>
         </div>
     </section>
@@ -1108,6 +1313,48 @@
         </div>
     </section>
 
+    <section id="tools" class="tools">
+        <div class="section-header">
+            <div class="section-label verify">&lt;verify&gt;</div>
+            <h2 class="section-title">Interactives</h2>
+            <p class="tools-intro">A growing set of interactive instruments for investigation and analysis, published under the <strong>&lt;verify&gt;</strong> imprint and integrated into ongoing work.</p>
+        </div>
+        <div class="tools-grid">
+            <article class="tool-item">
+                <a href="https://jonnealon.github.io/StockTool/iic_fund_checker.html" target="_blank" class="tool-link">
+                    <div class="tool-body">
+                        <div class="tool-type">Interactive Data Tool</div>
+                        <h3 class="tool-title">Economy Stock Tool</h3>
+                        <p class="tool-abstract">Search any mutual fund or ETF ticker to see whether it holds companies with active immigration-enforcement (ICE) contracts, cross-referencing holdings against tracked detention, surveillance, and deportation firms to return a portfolio exposure score.</p>
+                        <div class="tool-status">Live tool</div>
+                    </div>
+                </a>
+            </article>
+
+            <article class="tool-item no-link">
+                <div class="tool-link">
+                    <div class="tool-body">
+                        <div class="tool-type">Interactive Map</div>
+                        <h3 class="tool-title">Shuffle Map</h3>
+                        <p class="tool-abstract">An interactive map tracing migrants' journeys through the ICE detention system—215,783 transfer paths across facilities, 2022–2026. Filter the network, select a country, and trace individual routes stop by stop, built on FOIA data processed by the Deportation Data Project.</p>
+                        <div class="tool-status">Working prototype</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tool-item">
+                <a href="executable-scholarship.html" class="tool-link">
+                    <div class="tool-body">
+                        <div class="tool-type">Executable Scholarship</div>
+                        <h3 class="tool-title">The Commodification Lens</h3>
+                        <p class="tool-abstract">An AI-powered instrument encoding the Migrant Body Commodification framework. Submit an article, policy document, or executive order and the tool identifies commodification models, maps value-extraction streams, and links to comparable cases.</p>
+                        <div class="tool-status">Live tool with accompanying essay</div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
     <section id="research" class="research">
         <div class="section-header">
             <div class="section-label">Research & Writing</div>
@@ -1131,17 +1378,6 @@
                     Develops a theoretical framework for understanding 'migrant body commodification'—how state actors convert migrants into extractable political, economic, and diplomatic value through strategic spatial positioning.
                 </p>
                 <div class="research-status">Under review, Environment and Planning C: Politics and Space</div>
-            </article>
-
-            <article class="research-item">
-                <a href="executable-scholarship.html" style="text-decoration: none; color: inherit;">
-               <div class="research-type">Executable Scholarship</div>
-                <h3 class="research-title">The Commodification Lens: Theory as Infrastructure</h3>
-                <p class="research-abstract">
-            An AI-powered analytical instrument that encodes the Migrant Body Commodification framework. Users submit news articles, policy documents, or executive orders, and the tool applies the MBC lens, identifying commodification models, mapping value extraction streams, and drawing comparative connections to established cases.
-        </p>
-        <div class="research-status">Live tool with accompanying essay</div>
-        </a>
             </article>
 
             <article class="research-item">
@@ -1170,16 +1406,33 @@
             <div class="service-item">
                 <h3 class="service-title">Geospatial Investigations</h3>
                 <p class="service-description">
-                    End-to-end investigative support integrating satellite imagery analysis, open-source verification, and three-dimensional spatial reconstruction for human rights documentation and legal accountability.
+                    End-to-end investigative support integrating satellite imagery analysis, open-source verification, and interactive mapping for human rights documentation and legal accountability.
                 </p>
             </div>
            <div class="service-item">
                 <h3 class="service-title">Speaking & Lectures</h3>
                 <p class="service-description">
-                    Guest lectures, conference presentations,  and keynote addresses on geospatial journalism methodology, visual investigations, media history, and the future of spatial storytelling in news media.
+                    Film screenings, guest lectures, and conference presentations on geospatial journalism methodology, visual investigations, media history, and the future of spatial storytelling.
                 </p>
             </div>
             
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-intro">
+                I produce investigations that use geospatial analysis to document human rights violations and hold power accountable. My work bridges documentary filmmaking, spatial analysis, and legal evidence standards.
+            </div>
+            <div class="about-text">
+                <p>
+                    I spent twenty years as a documentary editor, shaping stories for broadcast and independent film. It is a craft I love, but increasingly I wanted my work to do more than reach audiences; I wanted it to matter in courtrooms, in policy debates, and in the lives of people affected by the events I was documenting.
+                </p>
+                <p>
+                    That conviction led me to new partnerships, to investigations that could inform legal accountability, shape policy, and serve communities beyond the screen, and eventually back to graduate school to learn the geospatial technologies now central to investigative journalism. I'm completing my MS in GIS at the University at Albany, developing human-centered approaches to spatial storytelling that make complex evidence accessible while meeting standards for legal accountability.
+                </p>
+
+            </div>
         </div>
     </section>
 
@@ -1218,6 +1471,22 @@
                 }
             });
         });
+
+        // Auto-expire upcoming talks the day after each event
+        (function () {
+            const box = document.getElementById('upcoming');
+            if (!box) return;
+            const now = new Date();
+            box.querySelectorAll('.upcoming-list li').forEach(li => {
+                const d = li.getAttribute('data-date');
+                if (!d) return;
+                const parts = d.split('-').map(Number);
+                // Expire at the end of the event day (local time)
+                const expires = new Date(parts[0], parts[1] - 1, parts[2], 23, 59, 59);
+                if (now > expires) li.remove();
+            });
+            if (!box.querySelector('.upcoming-list li')) box.style.display = 'none';
+        })();
 
         // Add scroll-based nav styling
         const nav = document.querySelector('nav');
